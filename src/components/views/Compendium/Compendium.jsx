@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { fetchCards } from '../../../services/cards';
 import CardList from '../../CardList/CardList';
+import Loader from 'react-loader-spinner';
 
 export default function Compendium() {
     const [loading, setLoading] = useState(true);
@@ -20,6 +21,10 @@ export default function Compendium() {
         };
         getCards();
     }, [])
+
+    if (loading) {
+        <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />;
+    }
 
     return (
         <div>
