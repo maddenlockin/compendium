@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-export default function Card({card}) {
+export default function Card({ card }) {
     return (
         <figure aria-label={`yu-gi-oh card ${card.card}`}>
             <img src={card.url_image} alt={`$card.card`} />
