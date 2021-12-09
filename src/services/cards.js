@@ -13,9 +13,9 @@
 // };
 
 const fetchCards = async () => {
-    const results = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex`);
+    const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex`);
 
-    const cardData = await results.json();
+    const cardData = await res.json();
 
     return cardData.results;
 };
@@ -26,6 +26,14 @@ const fetchTypes = async () => {
     const cardTypes = await res.json();
 
     return cardTypes;
+}
+
+const fetchSelectedType = async (type) => {
+    const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?type=${type}`);
+
+    const filteredCards = await res.json();
+    console.log(filteredCards);
+    return filteredCards.results;
 }
 
 //     const randomTypes = types
@@ -40,6 +48,6 @@ const fetchTypes = async () => {
     //const results = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}`);
 
 
-export { fetchCards, fetchTypes }
+export { fetchCards, fetchTypes, fetchSelectedType }
 
 ;

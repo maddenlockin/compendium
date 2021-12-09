@@ -6,11 +6,11 @@ export default function Card({ card }) {
         <figure aria-label={`pokemon card ${card.card}`}>
             <img src={card.url_image} alt={`$card.card`} />
             <div className="card-details">
-                <h3 href={card.cardList}>{card.card}</h3>
-                <p>Type 1:{card.type_1}</p>
-                <p>Type 2:{card.type_2}</p>
-                <p>Shape:{card.shape}</p>
-                <p>Speed:{card.speed}</p>
+                <h3>Card: {card.pokemon}</h3>
+                <p>Type 1: {card.type_1}</p>
+                <p>Type 2: {card.type_2}</p>
+                <p>Shape: {card.shape}</p>
+                <p>Speed: {card.speed}</p>
             </div>
         </figure>
     );
@@ -19,7 +19,7 @@ export default function Card({ card }) {
 Card.propTypes = {
     card: PropTypes.shape({
         id: PropTypes.number.isRequired,
-            card: PropTypes.string.isRequired,
+            pokemon: PropTypes.string.isRequired,
             cardList: PropTypes.string.isRequired,
             shape: PropTypes.string.isRequired,
             speed: PropTypes.string.isRequired,
