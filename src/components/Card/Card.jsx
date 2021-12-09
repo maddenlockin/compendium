@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Card({ card }) {
     return (
-        <figure aria-label={`pokemon card ${card.card}`}>
+        <figure aria-label={`pokemon card ${card.pokemon}`}>
             <img src={card.url_image} alt={`$card.card`} />
             <div className="card-details">
                 <h3>Card: {card.pokemon}</h3>
