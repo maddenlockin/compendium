@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { fetchCards } from '../../../services/cards';
+import { fetchCards, fetchTypes } from '../../../services/cards';
 import CardList from '../../CardList/CardList';
 import Loader from 'react-loader-spinner';
-//import Controls from '../../Controls/Controls';
+import Controls from '../../Controls/Controls';
 
 export default function Compendium() {
     const [loading, setLoading] = useState(true);
     const [card, setCards] = useState([]);
     // const [search, setSearch] = useState('');
-    //const [types, setTypes] = useState([]);
+    const [types, setTypes] = useState([]);
     //const [selectedType, setSelectedType] = useState('all');
     // const [sort, setSort] = useState();
     // const [selectedSort, setSelectedSort] = useState(0);
@@ -23,13 +23,13 @@ export default function Compendium() {
         getCards();
     }, []);
 
-    // useEffect(() => {
-    //     async function getTypes() {
-    //         const cardTypes = await fetchTypes();
-    //         setTypes(cardTypes);
-    //     };
-    //     getTypes();
-    // }, [])
+    useEffect(() => {
+        async function getTypes() {
+            const cardTypes = await fetchTypes();
+            setTypes(cardTypes);
+        };
+        getTypes();
+    }, [])
 
     return (
         <>
@@ -38,10 +38,12 @@ export default function Compendium() {
             ) : (
             <div>
                 <h2> Pokemon Card Compendium</h2>
-                {/* <Controls types={types} selectedType={selectedType} filterChange={setSelectedType} /> */}
+                <Controls types={types}  />
                 <CardList cardList={card} />
             </div>
             )}
         </>
     );
 }
+
+//selectedType={selectedType} filterChange={setSelectedType}
