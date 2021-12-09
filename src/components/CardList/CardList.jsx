@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import PropTypes from "prop-types";
 
 export default function CardList({ cardList }) {
+    console.log('test', cardList)
     return (
         <ul aria-label='list of pokemon cards' className= 'cardList'>
             {cardList.map((card) => {
@@ -17,16 +18,10 @@ export default function CardList({ cardList }) {
 }
 
 CardList.propTypes = {
-    card: PropTypes.arrayOf(
+    cardList: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             pokemon: PropTypes.string.isRequired,
-            cardList: PropTypes.string.isRequired,
-            shape: PropTypes.string.isRequired,
-            speed: PropTypes.number.isRequired,
-            type_1: PropTypes.string.isRequired,
-            type_2: PropTypes.string.isRequired,
-            url_image: PropTypes.string.isRequired,
         })
     ).isRequired,
 };

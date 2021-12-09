@@ -8,11 +8,9 @@ import Controls from '../../Controls/Controls';
 export default function Compendium() {
     const [loading, setLoading] = useState(true);
     const [card, setCards] = useState([]);
-    // const [search, setSearch] = useState('');
     const [types, setTypes] = useState([]);
     const [selectedType, setSelectedType] = useState('all');
     const [sort, setSort] = useState();
-    //const [selectedSort, setSelectedSort] = useState(0);
 
     useEffect(() => {
         async function getCards() {
@@ -50,18 +48,19 @@ export default function Compendium() {
 
     useEffect(() => {
         async function sortCards() {
-            if (!sort) return;
+            //if (!sort) return;
 
             setLoading(true);
             if(sort === 'desc') {
+                console.log('test', 'DESC', sort);
                 const sortedCards = await fetchSortOrder(sort);
+                await setCards(sortedCards);
+            } else {
+                const sortedCards = await fetchSortOrder('asc');
                 setCards(sortedCards);
-            } if (sort === 'asc') {
-                const sortedCards = await fetchSortOrder(sort);
-                setCards(sortedCards);
-            } else{
-                const unsorted = await fetchCards();
-                setCards(unsorted);
+            // } else {
+            //     const unsorted = await fetchCards();
+            //     setCards(unsorted);
             }
             setLoading(false);
         }

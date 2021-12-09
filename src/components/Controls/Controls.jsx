@@ -9,12 +9,12 @@ export default function Controls({ types, selectedType, filterChange, sort, setS
                 {types.map(({ type }) => (
                     <option key={type} value={type}>{type}</option>
                 ))}
-            </select>
-            Sort A-Z or Z-A: 
+            </select>{' '}
+            or Sort A-Z or Z-A: 
             <select value={sort} onChange={(e) => setSort(e.target.value)}>
-                <option value='default' key='default'>
+                {/* <option value='default' key='default'>
                     default
-                </option>
+                </option> */}
                 <option value='asc' key='asc'>
                     asc
                 </option>

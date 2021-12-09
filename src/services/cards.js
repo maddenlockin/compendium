@@ -1,19 +1,7 @@
 
 
-// const cardMunger = (card) => {
-//     return {
-//         id: card.id,
-//         name: card.card,
-//         archetype: card.archetype,
-//         race: card.race,
-//         type: card.type,
-//         img: card.url_image,
-//         description: card.desc,
-//     };
-// };
-
 const fetchCards = async () => {
-    const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex`);
+    const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?sort=pokemon&direction=asc`);
 
     const cardData = await res.json();
 
@@ -38,22 +26,11 @@ const fetchSelectedType = async (type) => {
 
 const fetchSortOrder = async (sort) => {
     const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?sort=pokemon&direction=${sort}`);
-
+    console.log('test', sort)
     const sortedCards = await res.json();
-
+    console.log('test', sortedCards.results);
     return sortedCards.results;
 }
-
-//     const randomTypes = types
-//         // issue with types being strings below. 
-//         .map((cardType) => ({type: cardType.type}))
-//         // get random types
-//         .sort(() => 0.2 - Math.random())
-//         // take the first 5 of the random types
-//         .slice(0, 5);
-//         return randomTypes;
-// }
-    //const results = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}`);
 
 
 export { fetchCards, fetchTypes, fetchSelectedType, fetchSortOrder }
