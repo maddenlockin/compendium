@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Controls({ types, selectedType, filterChange }) {
+export default function Controls({ types, selectedType, filterChange, sort, setSort }) {
     return (
         <>
             Filter by type:
@@ -9,6 +9,18 @@ export default function Controls({ types, selectedType, filterChange }) {
                 {types.map(({ type }) => (
                     <option key={type} value={type}>{type}</option>
                 ))}
+            </select>
+            Sort A-Z or Z-A: 
+            <select value={sort} onChange={(e) => setSort(e.target.value)}>
+                <option value='default' key='default'>
+                    default
+                </option>
+                <option value='asc' key='asc'>
+                    asc
+                </option>
+                <option value='desc' key='desc'>
+                    desc
+                </option>
             </select>
         </>
     );

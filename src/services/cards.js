@@ -36,6 +36,14 @@ const fetchSelectedType = async (type) => {
     return filteredCards.results;
 }
 
+const fetchSortOrder = async (sort) => {
+    const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?sort=pokemon&direction=${sort}`);
+
+    const sortedCards = await res.json();
+
+    return sortedCards.results;
+}
+
 //     const randomTypes = types
 //         // issue with types being strings below. 
 //         .map((cardType) => ({type: cardType.type}))
@@ -48,6 +56,6 @@ const fetchSelectedType = async (type) => {
     //const results = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}`);
 
 
-export { fetchCards, fetchTypes, fetchSelectedType }
+export { fetchCards, fetchTypes, fetchSelectedType, fetchSortOrder }
 
 ;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { fetchCards, fetchSelectedType, fetchTypes } from '../../../services/cards';
+import { fetchCards, fetchSelectedType, fetchSortOrder, fetchTypes } from '../../../services/cards';
 import CardList from '../../CardList/CardList';
 import Loader from 'react-loader-spinner';
 import Controls from '../../Controls/Controls';
@@ -11,8 +11,8 @@ export default function Compendium() {
     // const [search, setSearch] = useState('');
     const [types, setTypes] = useState([]);
     const [selectedType, setSelectedType] = useState('all');
-    // const [sort, setSort] = useState();
-    // const [selectedSort, setSelectedSort] = useState(0);
+    const [sort, setSort] = useState();
+    //const [selectedSort, setSelectedSort] = useState(0);
 
     useEffect(() => {
         async function getCards() {
@@ -48,6 +48,26 @@ export default function Compendium() {
         getSelectedType();
     }, [selectedType])
 
+    useEffect(() => {
+        async function sortCards() {
+            if (!sort) return;
+
+            setLoading(true);
+            if(sort === 'desc') {
+                const sortedCards = await fetchSortOrder(sort);
+                setCards(sortedCards);
+            } if (sort === 'asc') {
+                const sortedCards = await fetchSortOrder(sort);
+                setCards(sortedCards);
+            } else{
+                const unsorted = await fetchCards();
+                setCards(unsorted);
+            }
+            setLoading(false);
+        }
+        sortCards();
+    }, [sort]);
+
     return (
         <>
             {loading ? (
@@ -55,7 +75,7 @@ export default function Compendium() {
             ) : (
             <div>
                 <h2> Pokemon Card Compendium</h2>
-                <Controls types={types} selectedType={selectedType} filterChange={setSelectedType} />
+                <Controls types={types} selectedType={selectedType} filterChange={setSelectedType} sort={sort} setSort={setSort} />
                 <CardList cardList={card} />
             </div>
             )}

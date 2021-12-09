@@ -7,7 +7,7 @@ export default function CardList({ cardList }) {
         <ul aria-label='list of pokemon cards' className= 'cardList'>
             {cardList.map((card) => {
                 return (
-                    <li key={card.card} className='item'>
+                    <li key={card.pokemon} className='item'>
                         <Card card={card} />
                     </li>
                 );
@@ -20,10 +20,10 @@ CardList.propTypes = {
     card: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
-            card: PropTypes.string.isRequired,
+            pokemon: PropTypes.string.isRequired,
             cardList: PropTypes.string.isRequired,
             shape: PropTypes.string.isRequired,
-            speed: PropTypes.string.isRequired,
+            speed: PropTypes.number.isRequired,
             type_1: PropTypes.string.isRequired,
             type_2: PropTypes.string.isRequired,
             url_image: PropTypes.string.isRequired,
