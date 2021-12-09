@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# React Compendium
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Learning Objectives
 
-## Available Scripts
+- Use the `useEffect` hook to fetch external data
+- Use `.map` to iterate over an array and render new elements for each item in an array.
+- Add a unique `key` to each element rendered from a `.map` in React.
+- Make an api request using the `fetch` api
+- Make an api request after a form submission in react
+- Update state with `useEffect` based on dropdown change
+- conditionally render components based on state
 
-In the project directory, you can run:
+### Description
 
-### `npm start`
+For this app, we'll be using the `useEffect` react hook to `fetch` data inside of our applications and show the data to the user. The `useEffect` hook is the second most used react hook. It handles **side effects** that our app performs. Data fetching is one of these side effects. We'll be learning the right way to use this hook to manage state in our applications that requires these side effects to happen. Some of the api requests we will do includes _querying_, _filtering_, and _sorting_ our data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We'll be using the [Alchemy Pokemon API](https://pokedex-alchemy.herokuapp.com) in the example of these features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Alternatively you can also use the [SWAPI API](https://swapi.dev/).
 
-### `npm test`
+Create a new React app using `npx create-react-app <app name>` and be sure to add in your `.eslint` and prettier [configs](https://github.com/alchemycodelab/config-build-deploy/tree/main/eslint).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Acceptance Criteria
 
-### `npm run build`
+- Users should be able to see a list of at least 10 characters when the page loads
+- Users should see 5 character details on each character
+- Users should be able to filter data from the api ( Can use any type of filter you want from the api you choose to work with)
+- Users should be able to sort the data retrieved from the api
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Rubric
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Tasks                                                              | Points |
+| :----------------------------------------------------------------- | -----: |
+| See a loading state while data is being fetched on page load       |      2 |
+| See a list of characters when the page loads                       |      2 |
+| Filter the data retrieved                                          |      2 |
+| Conditionally render a loading state                               |      2 |
+| Make an api request with `fetch` and `useEffect` when page loads   |      2 |
+| Add a `key` to each item rendered from data fetched                |      2 |
+| Update state with `useEffect` using empty dependency array         |      2 |
+| Update state with `useEffect` conditionally using dependency array |      2 |
+| Snapshot testing                                                   |      2 |
+| Deployed on Netlify with passing CI                                |      2 |

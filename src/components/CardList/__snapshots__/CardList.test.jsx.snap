@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a list of pokemon cards 1`] = `
+<ul
+  aria-label="list of pokemon cards"
+  class="cardList"
+>
+  <li
+    class="item"
+  >
+    <figure
+      aria-label="pokemon card murkrow"
+    >
+      <img
+        alt="$card.card"
+        src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/198.png"
+      />
+      <div
+        class="card-details"
+      >
+        <h3>
+          Card: 
+          murkrow
+        </h3>
+        <p>
+          Type 1: 
+          dark
+        </p>
+        <p>
+          Type 2: 
+          flying
+        </p>
+        <p>
+          Shape: 
+          wings
+        </p>
+        <p>
+          Speed: 
+          91
+        </p>
+      </div>
+    </figure>
+  </li>
+  <li
+    class="item"
+  >
+    <figure
+      aria-label="pokemon card gyarados-mega"
+    >
+      <img
+        alt="$card.card"
+        src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/130_f2.png"
+      />
+      <div
+        class="card-details"
+      >
+        <h3>
+          Card: 
+          gyarados-mega
+        </h3>
+        <p>
+          Type 1: 
+          water
+        </p>
+        <p>
+          Type 2: 
+          dark
+        </p>
+        <p>
+          Shape: 
+          NA
+        </p>
+        <p>
+          Speed: 
+          81
+        </p>
+      </div>
+    </figure>
+  </li>
+</ul>
+`;
